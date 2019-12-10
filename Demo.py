@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup # BeautifulSoup is in bs4 package to extract useful information from html page
 import tkinter as tk # tkinter is a library for developing GUI
-from tkinter import Canvas, BOTH # import canvas and BOTH for drawing but where not used in project can be removed
+from tkinter import Scrollbar # import canvas and BOTH for drawing but where not used in project can be removed
 import requests #requests to actually call the url
 
 class GUI(tk.Frame): #main GUI class which takes in Tkinker frame as object for initialization
@@ -12,9 +12,8 @@ class GUI(tk.Frame): #main GUI class which takes in Tkinker frame as object for 
    def initialize_user_interface(self):
        self.root.geometry("400x400") #set the size of frame
        self.root.title("Price Scraper") #set title of the frame
+
        walmart_frame = tk.LabelFrame(self.root, text="Walmart Link", pady=0) #declare label frame so that it looks like a box with borders and text Walnart Link
-
-
        self.entry1=tk.Text(walmart_frame, height=10, width=30) #define input place where use will be pasting the link. # NOTE:  we want this input to be inside walmart_frame thus we are injecting it, we can also infect self.root if we want this to be in mai tkinter frame
        self.entry1.pack() #pack the entry we created this needs to be done for every fields,buttons we want to show in frame
        self.button=tk.Button(walmart_frame,text="Submit", command=self.readUrl) #make a button and tell it that on clicking call readUrl function
@@ -79,10 +78,7 @@ class GUI(tk.Frame): #main GUI class which takes in Tkinker frame as object for 
            price.append(name)
            self.label.insert(0,price)
 
-
-
-
-
+       
 if __name__ == '__main__':
 
    root = tk.Tk() #call tinker for initial frame
